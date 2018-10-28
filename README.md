@@ -9,7 +9,7 @@ This project is a standalone demonstration of Java on Azure App Service for Linu
 - [Demonstration Steps](#demonstration-steps)
 - [Pitching Notes](#pitching-notes)
 
-### Requirements
+## Requirements
 
 Before working through this demo, you must have the following technologies on your machine.
 
@@ -17,7 +17,7 @@ Before working through this demo, you must have the following technologies on yo
 - An Azure account and subscription
 - Maven (version 3 or greater)
 
-### Preparation
+## Preparation
 
 Complete these steps __before__ meeting a customer or going to a conference.
 
@@ -70,11 +70,15 @@ Complete these steps __before__ meeting a customer or going to a conference.
     - Add the name of your App Service instance and the resource group to the pom.xml
 
 1. Export environment variables for your document DB
-    - 
 
-### Demonstration Steps
+    - Enter your Cosmos DB URI, name, and primary master key in `set-env-vars.sh`
+    - Execute the script
+        - Powershell: 
+        - Bash:
+
+## Demonstration Steps
 
 1. 
 
 
-### Pitching Notes
+## Pitching Notes
