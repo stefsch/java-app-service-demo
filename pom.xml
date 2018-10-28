@@ -103,18 +103,18 @@
                     <appName>ENTER_YOUR_APP_NAME</appName>
                     <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
 
-                    <appSettings>
+                    <appSettings> <!-- These name/value pairs are passed as environment variables to the App Service instance -->
                         <property>
                             <name>DOCUMENTDB_URI</name>
-                            <value></value>
+                            <value>${DOCUMENTDB_URI}</value>
                         </property>
                         <property>
                             <name>DOCUMENTDB_KEY</name>
-                            <value></value>
+                            <value>${DOCUMENTDB_KEY}</value>
                         </property>
                         <property>
                             <name>DOCUMENTDB_DBNAME</name>
-                            <value></value>
+                            <value>${DOCUMENTDB_DBNAME}</value>
                         </property>
                     </appSettings>
 

@@ -1,6 +1,6 @@
 # Java on App Service for Linux (Demo)
 
-This project is a standalone demonstration of Java on Azure App Service for Linux. This is meant to be used by Microsoft employees to highlight the core features of the product. In this demo you will...
+This project is a standalone demonstration of Java on Azure App Service for Linux. This is meant to be used by Microsoft employees to highlight the core features of the product.
 
 ## Contents
 
@@ -8,6 +8,7 @@ This project is a standalone demonstration of Java on Azure App Service for Linu
 - [Preparation](#preparation)
 - [Demonstration Steps](#demonstration-steps)
 - [Pitching Notes](#pitching-notes)
+- [Technical Notes](#technical-notes)
 
 ## Requirements
 
@@ -65,12 +66,9 @@ Complete these steps __before__ meeting a customer or going to a conference.
             - Cool down (minutes) --> 2
         - __TODO__: Memory instructions
 
-1. Configure the Maven POM.xml
-
-    - Add the name of your App Service instance and the resource group to the pom.xml
+1. Add the name of your App Service instance and the resource group to the pom.xml
 
 1. Export environment variables for your document DB
-
     - Enter your Cosmos DB URI, name, and primary master key in `set-env-vars.sh`
     - Execute the script
         - Powershell: 
@@ -82,3 +80,13 @@ Complete these steps __before__ meeting a customer or going to a conference.
 
 
 ## Pitching Notes
+
+- They can deploy a container and use the Azul JDK
+    - Add Git repo with images
+- __Managed__ service for Java. No one else has this!!
+- Upcoming feature to auto-update the JDK major/minor version, or stay at your current version
+
+## Technical Notes
+
+- Underlying Linux OS
+- 
