@@ -66,21 +66,37 @@ Complete these steps __before__ meeting a customer or going to a conference.
             - Cool down (minutes) --> 2
         - __TODO__: Memory instructions
 
-1. Add the name of your App Service instance and the resource group to the pom.xml
+1. Export the follwing environment variables for your resources. Do not change these names. I suggest making these permanent environment variables (rather than confined to just the session).
+    - RESOURCE_GROUP --> Name of your resource group
+    - APP_SERVICE_NAME --> name of your App Service instance
+    - DOCUMENTDB_URI --> URI of your Cosmos DB
+    - DOCUMENTDB_KEY --> Primary key for Cosmos
+    - DOCUMENTDB_DBNAME --> Name of your Cosmos DB
 
-1. Export environment variables for your document DB
-    - Enter your Cosmos DB URI, name, and primary master key in `set-env-vars.sh`
-    - Execute the script
-        - Powershell: 
-        - Bash:
+1. Deploy the application!
+    - Package and deploy the application: `mvn clean package azure-webapp:deploy`
+    - We want to have it deployed ahead of the demo because the cold-start can take a few minutes. During the demo we will _re_-deploy the application, which saves time.
 
 ## Demonstration Steps
 
-1. 
+1. Orient the audenience with the project
+    - It's a simple To-Do List application powered by Spring Boot on the backend, and AngularJS on the front. 
+    - The src directory is fairly lean. The controller class shows all the URL mappings.
+    - Show Azure plugin in the POM and note the following:
+        - The properties within the `<appSettings>` are set as environment variables when the app is deployed
+        - Here they configure our connection to the Cosmos DB
+1. Use the Maven plugin to deploy the application
+    - `mvn azure-webapp:deploy`
+    - While the deployment is happening, you can show the current version of the application in the browser
+    - Create an entry or two
+1. Navigate to the Portal
+    - Under "Application Settings", show that the poperties from the POM plugin are now environment variables
 
 
 ## Pitching Notes
 
+- Using the Maven plugin for deployment
+    - This is the primary story we are pushing for deploying Java applications to App Service. Note that they only need to specify their app service name, a resource group, and a runtime. That's it! If the app does not already exist, the plugin will create it!
 - They can deploy a container and use the Azul JDK
     - Add Git repo with images
 - __Managed__ service for Java. No one else has this!!
@@ -88,5 +104,5 @@ Complete these steps __before__ meeting a customer or going to a conference.
 
 ## Technical Notes
 
-- Underlying Linux OS
+- Underlying Linux OS?
 - 

@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.Vector;
 
 @RestController
 public class TodoListController {
@@ -99,6 +100,44 @@ public class TodoListController {
         } catch (Exception e) {
             return new ResponseEntity<String>("Entity deletion failed", HttpStatus.NOT_FOUND);
         }
-
     }
+
+    /**
+     * HTTP GET
+     * Consumes memory. Should never return a successful code.
+     */
+    @RequestMapping(value = "/api/memoryTest", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> performMemoryTest() {
+        try {
+            Vector<byte[]> vector = new Vector<byte[]>();
+            while (true) {
+                byte bytes[] = new byte[1048576];  //1MB
+                vector.add(bytes);
+
+                Runtime rt = Runtime.getRuntime();
+                System.out.println( "free memory: " + rt.freeMemory() );
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<String>("Error encountered during Memory load test.", HttpStatus.I_AM_A_TEAPOT);
+        }
+    }
+    
+    /**
+     * HTTP GET
+     * Consumes CPU. Should never return a successful code.
+     */
+    @RequestMapping(value = "/api/cpuTest/{seconds}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> performCPUTest(@PathVariable("seconds") String seconds) {
+        long milliseconds = Integer.parseInt(seconds)*1000;
+        try {
+            final long start = System.currentTimeMillis();
+		    while (System.currentTimeMillis() - start < milliseconds) {
+			    // Nothing to do
+            }
+            return new ResponseEntity<String>(String.format("CPU test complete (%s seconds).", seconds), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<String>("Error encountered during CPU load test.", HttpStatus.I_AM_A_TEAPOT);
+        }
+    }
+    
 }

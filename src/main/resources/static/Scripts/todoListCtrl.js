@@ -92,4 +92,23 @@ angular.module('todoApp')
                 $scope.loadingMsg = '';
             })
         };
+        
+        // Controllers for memoery and CPU stres testing
+        $scope.memoryTest = function () {
+            console.log('Sent from todoListCtl.js');
+            todoListSvc.memoryTest().success( function (response) {
+                console.log(response);
+            }).error(function (err) {
+                $scope.error = err;
+            })
+        };
+
+        $scope.cpuTest = function (seconds) {
+            console.log('Sent from todoListCPU.js');
+            todoListSvc.cpuTest(seconds).success ( function (response) {
+                console.log(response);
+            }).error(function (err) {
+                $scope.error = err;
+            })
+        }
     }]);
