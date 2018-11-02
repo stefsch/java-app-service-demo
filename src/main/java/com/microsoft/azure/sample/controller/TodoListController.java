@@ -111,7 +111,7 @@ public class TodoListController {
         try {
             Vector<byte[]> vector = new Vector<byte[]>();
             while (true) {
-                byte bytes[] = new byte[1048576];  //1MB
+                byte bytes[] = new byte[1048576];  // 1MB
                 vector.add(bytes);
 
                 Runtime rt = Runtime.getRuntime();
