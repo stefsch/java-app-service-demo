@@ -33,9 +33,9 @@ angular.module('todoApp')
                 console.log('Sent from todoListSvc.js');
                 return $http.get('api/memoryTest');
             },
-            cpuTest: function (seconds) {
+            cpuTest: function (cores, threads, load, duration) {
                 console.log('Sent from todoListSrv.js');
-                return $http.get('api/cpuTest/' + seconds);
+                return $http.get('/api/cpuTest/cores/'+cores+'/threads/'+threads+'/load/'+load+'/duration/'+duration);
             }
         };
     }]);

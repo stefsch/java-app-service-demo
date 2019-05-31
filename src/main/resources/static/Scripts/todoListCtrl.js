@@ -103,9 +103,9 @@ angular.module('todoApp')
             })
         };
 
-        $scope.cpuTest = function (seconds) {
+        $scope.cpuTest = function (cores, threads, load, duration) {
             console.log('Sent from todoListCPU.js');
-            todoListSvc.cpuTest(seconds).success ( function (response) {
+            todoListSvc.cpuTest(cores, threads, load, duration).success ( function (response) {
                 console.log(response);
             }).error(function (err) {
                 $scope.error = err;
