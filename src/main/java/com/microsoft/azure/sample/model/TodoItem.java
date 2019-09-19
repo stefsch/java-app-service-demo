@@ -7,7 +7,12 @@ package com.microsoft.azure.sample.model;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class TodoItem {
+    @Id
     private String id;
     private String description;
     private String owner;

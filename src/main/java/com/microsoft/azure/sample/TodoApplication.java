@@ -18,21 +18,5 @@ public class TodoApplication {
     }
 }
 
-/* 
-Old initializer for WAR packaging
-@SpringBootApplication
-public class TodoApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(TodoApplication.class);
-    }
-
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(TodoApplication.class, args);
-    }
-
-}
-*/
 
 
