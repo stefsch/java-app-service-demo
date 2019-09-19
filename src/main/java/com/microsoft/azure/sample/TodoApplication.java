@@ -11,6 +11,16 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
+public class TodoApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(TodoApplication.class, args);
+    }
+}
+
+/* 
+Old initializer for WAR packaging
+@SpringBootApplication
 public class TodoApplication extends SpringBootServletInitializer {
 
     @Override
@@ -23,13 +33,6 @@ public class TodoApplication extends SpringBootServletInitializer {
     }
 
 }
-
-/*
-@SpringBootApplication
-public class TodoApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(TodoApplication.class, args);
-    }
-}
 */
+
+

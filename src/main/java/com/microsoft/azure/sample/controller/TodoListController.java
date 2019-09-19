@@ -13,11 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.Vector;
+import java.util.*;
 
 @RestController
 public class TodoListController {
@@ -55,7 +51,7 @@ public class TodoListController {
     @RequestMapping(value = "/api/todolist", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> getAllTodoItems() {
         try {
-            return new ResponseEntity<List<TodoItem>>(todoItemRepository.findAll(), HttpStatus.OK);
+            return new ResponseEntity<Iterable<TodoItem>>(todoItemRepository.findAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>("Nothing found", HttpStatus.NOT_FOUND);
         }

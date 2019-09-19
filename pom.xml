@@ -7,7 +7,7 @@
     <groupId>com.microsoft.azure</groupId>
     <artifactId>java-app-service-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>java-app-servrice-demo</name>
     <description>A todo list application uses AngularJS and Azure DocumentDB Spring boot starter</description>
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
+            <!-- <scope>provided</scope> -->
         </dependency>
     </dependencies>
 
@@ -97,25 +97,9 @@
                 <artifactId>azure-webapp-maven-plugin</artifactId>
                 <version>1.4.1</version>
                 <configuration>
-                    <resourceGroup>${env.RESOURCE_GROUP}</resourceGroup>
-                    <appName>${env.APP_SERVICE_NAME}</appName>
+                    <appName>freebergslotsapp</appName>
+                    <resourceGroup>devoxfreebergapp</resourceGroup>
                     <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
-
-                    <appSettings> <!-- These name/value pairs are passed as environment variables to the App Service instance -->
-                        <property>
-                            <name>DOCUMENTDB_URI</name>
-                            <value>${env.DOCUMENTDB_URI}</value>
-                        </property>
-                        <property>
-                            <name>DOCUMENTDB_KEY</name>
-                            <value>${env.DOCUMENTDB_KEY}</value>
-                        </property>
-                        <property>
-                            <name>DOCUMENTDB_DBNAME</name>
-                            <value>${env.DOCUMENTDB_DBNAME}</value>
-                        </property>
-                    </appSettings>
-
                 </configuration>
             </plugin>
         </plugins>
