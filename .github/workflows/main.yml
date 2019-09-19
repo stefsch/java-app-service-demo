@@ -1,6 +1,9 @@
 name: Build, publish, and deploy a Dockerized Spring app to App Service
 
-on: [push]
+on:
+  push:
+    branches:
+      dockerized-jar
 
 jobs:
   build:
