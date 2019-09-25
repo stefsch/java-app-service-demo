@@ -1,5 +1,5 @@
 name: Build, publish, and deploy a Dockerized Spring app to App Service
-# stefsch
+
 on:
   push:
     branches:
@@ -11,7 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      
+    # Check out repo to the VM
     - uses: actions/checkout@v1
+    
+    # Maven build
     - name: Build and test with Maven
       run: mvn clean package
    
@@ -32,7 +36,7 @@ jobs:
         docker push jasonfreeberg/dockerspringdemo:${{ github.sha }}
 
     # Finally, deploy the container to App Service
-    - uses: azure/appservice-actions/webapp-container@master
+    - uses: azure/webapps-container-deploy@v1
       with:
         app-name: 'githubActionsDockerContainer'
         images: 'jasonfreeberg/dockerspringdemo:${{ github.sha }}'

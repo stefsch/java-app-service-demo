@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+echo "Executing startup script..."
 
 # Start the SSH daemon
 /usr/sbin/sshd
