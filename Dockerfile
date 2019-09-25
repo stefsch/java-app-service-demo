@@ -10,7 +10,7 @@ COPY sshd_config /etc/ssh/
 COPY startup.sh /opt/startup/
 
 WORKDIR /usr/src
-EXPOSE 80 2222
+EXPOSE 8080 2222
 
 # startup.sh starts the SSH daemon and the Java app
 CMD ["/opt/startup/startup.sh"]
