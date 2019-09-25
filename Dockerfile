@@ -1,6 +1,9 @@
 # Base image uses the Zulu JRE, which gives you free support and security patches when used on Azure.
 FROM mcr.microsoft.com/java/jre-headless:8u212-zulu-alpine
 
+ENV PORT 8080
+ENV SSH_PORT 2222 
+
 RUN apk add openssh \
      && echo "root:Docker!" | chpasswd 
 
