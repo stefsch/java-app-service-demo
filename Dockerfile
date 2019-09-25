@@ -13,6 +13,10 @@ RUN apk add openssh \
 COPY ./target/app.jar /usr/src/
 COPY sshd_config /etc/ssh/
 COPY startup.sh /opt/startup/
+COPY ssh_setup.sh /opt/startup/
+
+RUN chmod -R +x /opt/startup/ssh_setup.sh \
+   && (sleep 1;/opt/startup/ssh_setup.sh 2>&1 > /dev/null)
 
 WORKDIR /usr/src
 EXPOSE 8080 2222

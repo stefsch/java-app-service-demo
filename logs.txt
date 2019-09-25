@@ -1,0 +1,15 @@
+2019-09-25 02:15:08.463 INFO  - Pulling image from Docker hub: jasonfreeberg/dockerspringdemo:ddd1568ab0622567ffbac513969e970bab5834b1
+2019-09-25 02:15:09.031 INFO  - ddd1568ab0622567ffbac513969e970bab5834b1 Pulling from jasonfreeberg/dockerspringdemo
+2019-09-25 02:15:09.031 INFO  -  Digest: sha256:fb465001ec3df7a71af3a102bdbb0fad0ab656b72300a95acc6641226a8acc0e
+2019-09-25 02:15:09.033 INFO  -  Status: Image is up to date for jasonfreeberg/dockerspringdemo:ddd1568ab0622567ffbac513969e970bab5834b1
+2019-09-25 02:15:09.040 INFO  - Pull Image successful, Time taken: 0 Minutes and 0 Seconds
+2019-09-25 02:15:09.064 INFO  - Starting container for site
+2019-09-25 02:15:09.065 INFO  - docker run -d -p 35218:8080 --name githubactionsdockercontainer_0_acfa3e47 -e WEBSITES_ENABLE_APP_SERVICE_STORAGE=false -e WEBSITE_SITE_NAME=githubActionsDockerContainer -e WEBSITE_AUTH_ENABLED=False -e PORT=8080 -e WEBSITE_ROLE_INSTANCE_ID=0 -e WEBSITE_HOSTNAME=githubactionsdockercontainer.azurewebsites.net -e WEBSITE_INSTANCE_ID=516d2da85d23bade07a664674c0e70f892e3ab8098471abfc3b435cfc0852201 jasonfreeberg/dockerspringdemo:ddd1568ab0622567ffbac513969e970bab5834b1  
+
+2019-09-25 02:15:09.066 INFO  - Logging is not enabled for this container.
+Please use https://aka.ms/linux-diagnostics to enable logging to see container logs here.
+
+2019-09-25 02:15:10.314 ERROR - Container start failed for githubactionsdockercontainer_0_acfa3e47 with System.AggregateException, One or more errors occurred. (Docker API responded with status code=BadRequest, response={"message":"OCI runtime create failed: container_linux.go:345: starting container process caused \"exec: \\\"/opt/startup/startup.sh\\\": permission denied\": unknown"}
+) (Docker API responded with status code=BadRequest, response={"message":"OCI runtime create failed: container_linux.go:345: starting container process caused \"exec: \\\"/opt/startup/startup.sh\\\": permission denied\": unknown"}
+)
+InnerException: Docker.DotNet.DockerApiException, Docker API responded with status code=BadRequest, response={"message":"OCI runtime create failed: container_linux.go:345: starting container process caused \"exec: \\\"/opt/startup/startup.sh\\\": permission denied\": unknown"}
