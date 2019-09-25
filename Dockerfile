@@ -2,11 +2,13 @@
 FROM mcr.microsoft.com/java/jre-headless:8u212-zulu-alpine
 COPY ./target/app.jar /usr/src/
 
-RUN apt-get install --yes --no-install-recommends openssh-server \
+RUN apk add openssh \
      && echo "root:Docker!" | chpasswd 
 
 COPY sshd_config /etc/ssh/
+COPY startup.sh /opt/startup
 
 WORKDIR /usr/src
 EXPOSE 80 2222
-CMD ["/usr/sbin/sshd", "java", "-jar", "app.jar"]
+CMD "/opt/startup/startup.sh"
+#CMD ["/usr/sbin/sshd", "java", "-jar", "app.jar"]
