@@ -34,8 +34,5 @@ jobs:
     # Finally, deploy the container to App Service
     - uses: azure/appservice-actions/webapp-container@master
       with:
-        app-name: '<your app name>'
+        app-name: 'githubActionsDockerContainer'
         images: 'jasonfreeberg/dockerspringdemo:${{ github.sha }}'
-
-    
-    
