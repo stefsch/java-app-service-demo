@@ -1,5 +1,5 @@
 name: Build, publish, and deploy a Dockerized Spring app to App Service
-
+# stefsch
 on:
   push:
     branches:
@@ -16,9 +16,9 @@ jobs:
       run: mvn clean package
    
     # Unlike code deployment, you will authenticate using a Service Principal
-    #- uses: azure/actions/login@master
-    #  with:
-    #    creds: ${{ secrets.AZURE_SP }}
+    - uses: azure/actions/login@master
+      with:
+        creds: ${{ secrets.VISUAL_STUDIO_SUB_SP }}
     
     # Login to Docker
     - uses: azure/container-actions/docker-login@master
@@ -35,7 +35,7 @@ jobs:
     - uses: azure/appservice-actions/webapp-container@master
       with:
         app-name: '<your app name>'
-        images: 'contoso/dockerspringdemo:${{ github.sha }}'
+        images: 'jasonfreeberg/dockerspringdemo:${{ github.sha }}'
 
     
     
