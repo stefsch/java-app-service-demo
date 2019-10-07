@@ -1,4 +1,4 @@
-name: Build, publish, and deploy a Dockerized Spring app to App Service
+name: Build, publish, and deploy a Spring app to App Service
 
 on:
   push:
@@ -27,4 +27,5 @@ jobs:
     - uses: azure/webapps-deploy@v1
       with:
         app-name: 'my-awesome-app'
+        publish-profile: ${{ secrets.MY_PUBLISH_PROFILE }}
         package: 'target/app.jar'
