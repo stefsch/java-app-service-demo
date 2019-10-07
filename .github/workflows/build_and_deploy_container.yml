@@ -1,9 +1,9 @@
 name: Build, publish, and deploy a Dockerized Spring app to App Service
-# example
+
 on:
   push:
     branches:
-      dockerized-jar
+      springdemo
 
 jobs:
   build:
@@ -17,26 +17,14 @@ jobs:
     
     # Maven build
     - name: Build and test with Maven
+      env:
+        SPRING_DATASOURCE_URL: 'pythondemodb.postgres.database.azure.com:5432/postgres_demo?sslmode=require'
+        SPRING_DATASOURCE_PASSWORD: 'antares@pythondemodb'
+        SPRING_DATASOURCE_USERNAME: ${{ secrets.db_password }}
       run: mvn clean package
-   
-    # Unlike code deployment, you will authenticate using a Service Principal
-    - uses: azure/actions/login@master
-      with:
-        creds: ${{ secrets.VISUAL_STUDIO_SUB_SP }}
-    
-    # Login to Docker
-    - uses: azure/container-actions/docker-login@master
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}
-  
-    # Tag the image with the git commit hash
-    - run: |
-        docker build . -t jasonfreeberg/dockerspringdemo:${{ github.sha }}
-        docker push jasonfreeberg/dockerspringdemo:${{ github.sha }}
 
     # Finally, deploy the container to App Service
-    - uses: azure/webapps-container-deploy@v1
+    - uses: azure/webapps-deploy@v1
       with:
-        app-name: 'githubActionsDockerContainer'
-        images: 'jasonfreeberg/dockerspringdemo:${{ github.sha }}'
+        app-name: 'my-awesome-app'
+        package: '/target/app.jar'
