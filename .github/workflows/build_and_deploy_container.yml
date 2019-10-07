@@ -27,4 +27,4 @@ jobs:
     - uses: azure/webapps-deploy@v1
       with:
         app-name: 'my-awesome-app'
-        package: '/target/app.jar'
+        package: 'target/app.jar'
