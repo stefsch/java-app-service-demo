@@ -26,6 +26,6 @@ jobs:
     # Finally, deploy the container to App Service
     - uses: azure/webapps-deploy@v1
       with:
-        app-name: 'my-awesome-app'
-        publish-profile: ${{ secrets.MY_PUBLISH_PROFILE }}
+        app-name: 'spring-one-demo'
+        publish-profile: ${{ secrets.CREDENTIALS }}
         package: 'target/app.jar'
