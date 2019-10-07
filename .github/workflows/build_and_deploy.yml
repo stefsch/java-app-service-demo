@@ -1,4 +1,4 @@
-name: Build, publish, and deploy a Spring app to App Service
+name: Build and deploy a Spring app to App Service
 
 on:
   push:
