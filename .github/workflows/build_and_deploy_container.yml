@@ -22,7 +22,7 @@ jobs:
     # Unlike code deployment, you will authenticate using a Service Principal
     - uses: azure/actions/login@master
       with:
-        creds: ${{ secrets.VISUAL_STUDIO_SUB_SP }}
+        creds: ${{ secrets.AZURE_SPN }}
     
     # Login to Docker
     - uses: azure/container-actions/docker-login@master
@@ -32,11 +32,11 @@ jobs:
   
     # Tag the image with the git commit hash
     - run: |
-        docker build . -t jasonfreeberg/dockerspringdemo:${{ github.sha }}
-        docker push jasonfreeberg/dockerspringdemo:${{ github.sha }}
+        docker build . -t stefschmsft/dockerspringdemo:${{ github.sha }}
+        docker push stefschmsft/dockerspringdemo:${{ github.sha }}
 
     # Finally, deploy the container to App Service
     - uses: azure/webapps-container-deploy@v1
       with:
-        app-name: 'githubActionsDockerContainer'
-        images: 'jasonfreeberg/dockerspringdemo:${{ github.sha }}'
+        app-name: 'schignite2019-javacontainer'
+        images: 'stefschmsft/dockerspringdemo:${{ github.sha }}'
